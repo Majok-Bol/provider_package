@@ -31,25 +31,26 @@ class HomePageState extends State<HomePage>{
   Widget build(BuildContext context){
     //create instance of counter model
     var counter=Provider.of<Counter>(context);
-    return Scaffold(appBar: AppBar(title: Text('Provider package'),centerTitle: true,backgroundColor: Colors.blue.shade200,),
+    return Scaffold(appBar: AppBar(title: Text('Provider package'),centerTitle: true,backgroundColor: Colors.blue.shade300,),
     body:Container(
       padding: EdgeInsets.all(10),
 
       child: Column(
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Row(children: [
           ElevatedButton(onPressed:() {
             counter.increment();
 
-          },style:ElevatedButton.styleFrom(backgroundColor: Colors.green), child:Icon(Icons.add)),
+          },style:ElevatedButton.styleFrom(backgroundColor: Colors.green), child:Text('Add')),
           SizedBox(width: 30,),
           ElevatedButton(onPressed:() {
             counter.reset();
 
-          },style:ElevatedButton.styleFrom(backgroundColor: Colors.red),child:Icon(Icons.delete))
+          },style:ElevatedButton.styleFrom(backgroundColor: Colors.red),child:Text('Reset'))
         ],),
         Center(child: Consumer<Counter>(builder:(context,counter,child){
-          return Text('Count: ${counter.count}');
+          return Text('Count: ${counter.count}',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),);
 
         }),)
 
