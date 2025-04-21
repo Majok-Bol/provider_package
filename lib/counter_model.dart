@@ -1,0 +1,2 @@
+//handle counter
+class Counter
